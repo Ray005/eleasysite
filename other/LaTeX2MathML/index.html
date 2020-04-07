@@ -1,0 +1,116 @@
+<html lang=zh-CN>
+
+<head>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/mdui.min.css">
+    <link rel="icon" href="css/gs.png"  />
+    <title>LaTeX2MathML</title>
+    <script src="https://cdn.bootcss.com/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<style>
+    input {
+        margin-top: .7em
+    }
+
+    .output {
+        border: 1px solid black;
+    }
+
+    .box {
+        position: relative
+    }
+
+    footer {
+        position: fixed;
+        left: 0px;
+        bottom: 0px;
+        width: 100%;
+        height: 50px;
+        background-color: #eee;
+        z-index: 9999;
+        padding-bottom: 5px;
+    }
+</style>
+
+<body>
+
+    <script>
+        (function () {
+            var QUEUE = MathJax.Hub.queue;
+            var math = null, box = null;
+            var HIDEBOX = function () { box.style.visibility = "hidden" }
+            var SHOWBOX = function () { box.style.visibility = "visible" }
+            QUEUE.Push(function () {
+                math = MathJax.Hub.getAllJax("MathOutput")[0];
+                box = document.getElementById("box");
+                SHOWBOX();
+            });
+            window.UpdateMath = function (TeX) {
+                TeX = TeX.replace(/\$/g, "")
+                QUEUE.Push(
+                    HIDEBOX,
+                    ["resetEquationNumbers", MathJax.InputJax.TeX],
+                    ["Text", math, "\\displaystyle{" + TeX + "}"],
+                    SHOWBOX
+                );
+            }
+        })();
+    </script>
+    <div class="mdui-container">
+        <div class="mdui-textfield mdui-textfield-floating-label">
+            <label class="mdui-textfield-label">输入一些\(\rm\TeX\)代码并按回车:</label>
+            <input class="mdui-textfield-input" id="MathInput"
+                value="f(a)=\frac{1}{2 \pi i} \oint_{\gamma} \frac{f(z)}{z-a} d z"
+                onchange="UpdateMath(this.value)" />
+        </div>
+        <div class="mdui-float-right">
+            <button class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-color-grey-900 mdui-ripple"
+                onclick="clean()">清空</button>
+        </div>
+        <div>
+            <br>
+            <p class="mdui-typo-headline-opacity">预览结果:</p>
+            <div class="box" id="box" style="visibility:hidden">
+                <div id="MathOutput" class="output">
+                    $$
+                    f(a)=\frac{1}{2 \pi i} \oint_{\gamma} \frac{f(z)}{z-a} d z
+                    $$
+                </div>
+            </div>
+        </div>
+        <br></br>
+        <h2>使用此工具将TEX格式公式键入Word</h2>
+        <li>1.输入TEX代码后回车，看到显示的公式预览</li>
+        <li>2.在预览的公式上右键->Show Math As->MathML Code点击显示MathML代码</li>
+        <li>3.将弹出框中代码复制，在word中右键-&gt;粘贴-&gt;只保留文本。
+        大功告成，呈现出漂亮的公式了。</li>
+        <li>
+            ————这样的好处之一是可以迅速从matlab输出latex格式公式，并键入word。
+        </li>
+    </div>
+    <footer class="mdui-center mdui-text-center">
+        <p class="mdui-typo-caption-opacity">一个将LaTeX方便的转换为MathML的工具</p>
+        <p class="mdui-typo-caption-opacity">
+            Made by:<a href="https://github.com/gaowanliang/LaTeX2MathML">高玩梁</a >
+             Powered by:<a href="https://www.mathjax.org/"  target="_blank">MathJax™</a>
+            Published on:<a href="http://eleasy.cn">电易中文网eleasy.cn</a>
+            </p>
+           
+    </footer>
+    <script>
+        function clean() {
+            $("#MathInput").val("")
+        }
+        if (MathJax.Hub.Browser.isMSIE) {
+            MathInput.onkeypress = function () {
+                if (window.event && window.event.keyCode === 13) { this.blur(); this.focus() }
+            }
+        }
+    </script>
+    <script src="css/mdui.min.js"></script>
+    <script src="css/jquery.min.js"></script>
+
+</body>
+
+</html>
