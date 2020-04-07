@@ -7,4 +7,4 @@
 
 illustrated by han
 
-made by gaowanliang@github 
+made by gaowanliang@github
