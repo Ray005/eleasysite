@@ -61,7 +61,7 @@
         <div class="mdui-textfield mdui-textfield-floating-label">
             <label class="mdui-textfield-label">输入一些\(\rm\TeX\)代码并按回车:</label>
             <input class="mdui-textfield-input" id="MathInput"
-                value="i(t)=\frac{1}{1+\frac{\beta(1-i_0)}{\gamma j+i_0\beta} e^{-t(\beta +\gamma j)}}-\gamma j\frac{1}{\beta + (\frac{\gamma j+i_0\beta}{1-i_0})e^{t(\beta +\gamma j)}}"
+                value="\int_{i_0}^i di=\int_0^t (1-i)(\beta i+\gamma j)dt"
                 onchange="UpdateMath(this.value)" />
         </div>
         <div class="mdui-float-right">
@@ -74,7 +74,7 @@
             <div class="box" id="box" style="visibility:hidden">
                 <div id="MathOutput" class="output">
                     $$
-                    i(t)=\frac{1}{1+\frac{\beta(1-i_0)}{\gamma j+i_0\beta} e^{-t(\beta +\gamma j)}}-\gamma j\frac{1}{\beta + (\frac{\gamma j+i_0\beta}{1-i_0})e^{t(\beta +\gamma j)}}
+                    \int_{i_0}^i di=\int_0^t (1-i)(\beta i+\gamma j)dt
                     $$
                 </div>
             </div>
