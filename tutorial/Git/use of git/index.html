@@ -365,6 +365,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    版本回退步骤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reference" class="md-nav__link">
     REFERENCE 参考文献
   </a>
@@ -1022,6 +1029,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    版本回退步骤
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#reference" class="md-nav__link">
     REFERENCE 参考文献
   </a>
@@ -1136,6 +1150,19 @@ index e69de29..de29587 <span class="m">100644</span>
 </pre></div>
 </td></tr></table>
 
+<h2 id="_1">版本回退步骤<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>1.git reset命令（重置）</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git reset a0fvf8 <span class="c1">#版本重置，HEAD指向这一版本</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="1596340719576.png" src="../images/1596340719576.png" /></p>
+<p>2.git revert命令（回退）</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git revert 5lk4er git revert 76sdeb <span class="c1">#版本回退，HEAD指向这个版本上一个</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="1596340824420.png" src="../images/1596340824420.png" /></p>
 <p><br /><br /><br /></p>
 <h2 id="reference">REFERENCE 参考文献<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
 <p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/896202780297248">廖雪峰的官方网站之git教程</a></p>
