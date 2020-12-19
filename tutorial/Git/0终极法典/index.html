@@ -1080,7 +1080,7 @@
 git add -A  <span class="c1">#添加修改的文件</span>
 git status  <span class="c1">#查看一下更改状态</span>
 git commit -am <span class="s1">&#39;提交信息&#39;</span>   <span class="c1">#提交</span>
-git remote add origin git@github.com:ray005/example.git <span class="c1">#关联远程库</span>
+git remote add origin git@github.com:ray005/example.git <span class="c1">#关联github远程库并命名为origin</span>
 git push -u origin main <span class="c1">#推送到远程库origin下的main分支</span>
 </pre></div>
 </td></tr></table>
@@ -1090,11 +1090,9 @@ git push -u origin main <span class="c1">#推送到远程库origin下的main分�
 2
 3
 4
-5
-6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git init <span class="c1">#初始化</span>
-<span class="c1">#（修改文件后进行下一步）</span>
+5</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="c1">#（常规修改文件后）</span>
 git add -A  <span class="c1">#添加修改的文件</span>
-git status  <span class="c1">#查看一下更改状态</span>
+git status  <span class="c1">#查看一下更改状态，无误即可提交</span>
 git commit -am <span class="s1">&#39;提交信息&#39;</span>   <span class="c1">#提交</span>
 git push    <span class="c1">#推送至远程仓库（默认使用上一次的推送仓库与分支参数）</span>
 </pre></div>
