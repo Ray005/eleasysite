@@ -38,7 +38,7 @@
     
     
       
-        <title>使用pyinstaller将python文件编译为exe - 电易中文网</title>
+        <title>01pip更改镜像源 - 电易中文网</title>
       
     
     
@@ -87,7 +87,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#pyinstallerpythonexe" tabindex="1" class="md-skip">
+      <a href="#01pip" tabindex="1" class="md-skip">
         跳转至
       </a>
     
@@ -124,7 +124,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                使用pyinstaller将python文件编译为exe
+                01pip更改镜像源
               
             </span>
           
@@ -734,30 +734,6 @@
           
           
 
-
-  <li class="md-nav__item">
-    <a href="../Python27guiopen/" title="Python2.7 GUI打不开问题的解决" class="md-nav__link">
-      Python2.7 GUI打不开问题的解决
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../pip更改镜像源/" title="pip更改镜像源" class="md-nav__link">
-      pip更改镜像源
-    </a>
-  </li>
-
-        
-          
-          
-          
-
   
 
 
@@ -769,11 +745,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        使用pyinstaller将python文件编译为exe
+        01pip更改镜像源
       </label>
     
-    <a href="./" title="使用pyinstaller将python文件编译为exe" class="md-nav__link md-nav__link--active">
-      使用pyinstaller将python文件编译为exe
+    <a href="./" title="01pip更改镜像源" class="md-nav__link md-nav__link--active">
+      01pip更改镜像源
     </a>
     
       
@@ -787,22 +763,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pyinstaller" class="md-nav__link">
-    第一步:安装pyinstaller
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    第二步：转换
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#refenrence" class="md-nav__link">
-    REFENRENCE
+  <a href="#windowspippython35" class="md-nav__link">
+    一、在windows环境下修改pip镜像源的方法(以python3.5为例)
   </a>
   
 </li>
@@ -824,8 +786,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../为python pip设置socks5代理/" title="pip下载加速——socks5代理" class="md-nav__link">
-      pip下载加速——socks5代理
+    <a href="../02Python27guiopen/" title="02Python2.7 GUI打不开问题的解决" class="md-nav__link">
+      02Python2.7 GUI打不开问题的解决
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../03python编译为exe/" title="03使用pyinstaller将python文件编译为exe" class="md-nav__link">
+      03使用pyinstaller将python文件编译为exe
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../04为python pip设置socks5代理/" title="04pip下载加速——socks5代理" class="md-nav__link">
+      04pip下载加速——socks5代理
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../05python环境移植/" title="05python环境移植" class="md-nav__link">
+      05python环境移植
     </a>
   </li>
 
@@ -1046,22 +1044,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#pyinstaller" class="md-nav__link">
-    第一步:安装pyinstaller
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    第二步：转换
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#refenrence" class="md-nav__link">
-    REFENRENCE
+  <a href="#windowspippython35" class="md-nav__link">
+    一、在windows环境下修改pip镜像源的方法(以python3.5为例)
   </a>
   
 </li>
@@ -1083,20 +1067,21 @@
               
                 
                 
-                <h1 id="pyinstallerpythonexe">使用pyinstaller将python文件编译为exe<a class="headerlink" href="#pyinstallerpythonexe" title="Permanent link">&para;</a></h1>
-<h2 id="pyinstaller">第一步:安装pyinstaller<a class="headerlink" href="#pyinstaller" title="Permanent link">&para;</a></h2>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">pip install pyinstaller </span>
+                <h1 id="01pip">01pip更改镜像源<a class="headerlink" href="#01pip" title="Permanent link">&para;</a></h1>
+<p>由于默认安装时的源大都是外国的更新源，速度相对国内会慢很多，接下来本文主要介绍在windows和linux两种系统环境中更新系统源的方法。</p>
+<h2 id="windowspippython35">一、在windows环境下修改pip镜像源的方法(以python3.5为例)<a class="headerlink" href="#windowspippython35" title="Permanent link">&para;</a></h2>
+<p>(1):在windows文件管理器中,输入 %APPDATA%</p>
+<p>(2):会定位到一个新的目录下，在该目录下新建pip文件夹，然后到pip文件夹里面去新建个pip.ini文件</p>
+<p>(3):在新建的pip.ini文件中输入以下内容(华为云的镜像源)，搞定</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="k">[global]</span>
+<span class="na">index-url</span> <span class="o">=</span> <span class="s">https://repo.huaweicloud.com/repository/pypi/simple</span>
+<span class="na">trusted-host</span> <span class="o">=</span> <span class="s">repo.huaweicloud.com</span>
+<span class="na">timeout</span> <span class="o">=</span> <span class="s">120</span>
 </pre></div>
 </td></tr></table>
-
-<h2 id="_1">第二步：转换<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
-<p>cd到py文件的目录下，cmd中输入</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="err">pyinstaller -F *.py</span>
-</pre></div>
-</td></tr></table>
-
-<h2 id="refenrence">REFENRENCE<a class="headerlink" href="#refenrence" title="Permanent link">&para;</a></h2>
-<p><a href="https://www.py.cn/jishu/jichu/12700.html">https://www.py.cn/jishu/jichu/12700.html</a></p>
                 
                   
                 
@@ -1118,7 +1103,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../pip更改镜像源/" title="pip更改镜像源" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../Office&PDF/zettlr/" title="从Zettlr/pandoc导出为word时的样式选择" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1127,19 +1112,19 @@
                 <span class="md-footer-nav__direction">
                   上一页
                 </span>
-                pip更改镜像源
+                从Zettlr/pandoc导出为word时的样式选择
               </span>
             </div>
           </a>
         
         
-          <a href="../为python pip设置socks5代理/" title="pip下载加速——socks5代理" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../02Python27guiopen/" title="02Python2.7 GUI打不开问题的解决" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   下一页
                 </span>
-                pip下载加速——socks5代理
+                02Python2.7 GUI打不开问题的解决
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
