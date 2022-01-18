@@ -1,0 +1,1040 @@
+
+
+
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="hans personal blog, mainly techs">
+      
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="复制">
+      
+        <meta name="lang:clipboard.copied" content="已复制">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="没有找到符合条件的结果">
+      
+        <meta name="lang:search.result.one" content="找到 1 个符合条件的结果">
+      
+        <meta name="lang:search.result.other" content="# 个符合条件的结果">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-\.]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-4.6.0">
+    
+    
+      
+        <title>1.Git 版本控制软件Git介绍 - 电易中文网</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.e194128b.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.3e3d1dff.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#009688">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" type="application/manifest+json" href="../../manifest.webmanifest" crossorigin="use-credentials">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#1git-git" tabindex="0" class="md-skip">
+        跳转至
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="电易中文网" aria-label="电易中文网" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">&#10999</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              电易中文网
+            </span>
+            <span class="md-header-nav__topic">
+              
+                1.Git 版本控制软件Git介绍
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            键入以开始搜索
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  <li class="md-tabs__item">
+    
+      <a href="../.." class="md-tabs__link">
+        电易中文网 Eleasy.cn
+      </a>
+    
+  </li>
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="./" class="md-tabs__link md-tabs__link--active">
+          Tutorial
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    
+    
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../wiki/Grove%20%E8%BF%9E%E7%BA%BF%E7%B3%BB%E7%BB%9F/Grove%20Femto/" class="md-tabs__link">
+          Wiki
+        </a>
+      
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="电易中文网" class="md-nav__button md-logo">
+      
+        <i class="md-icon">&#10999</i>
+      
+    </a>
+    电易中文网
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="电易中文网 Eleasy.cn" class="md-nav__link">
+      电易中文网 Eleasy.cn
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Tutorial
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Tutorial
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        1.Git 版本控制软件Git介绍
+      </label>
+    
+    <a href="./" title="1.Git 版本控制软件Git介绍" class="md-nav__link md-nav__link--active">
+      1.Git 版本控制软件Git介绍
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    版本控制有什么用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    为什么需要版本控制工具
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Python/" title="Python Tips" class="md-nav__link">
+      Python Tips
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Other
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Other
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Other/AIuse/" title="01 App inventor2网页版" class="md-nav__link">
+      01 App inventor2网页版
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Other/Other_Mixed/" title="Other_Mixed" class="md-nav__link">
+      Other_Mixed
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Other/latexuse/" title="LATEX排版系统的使用" class="md-nav__link">
+      LATEX排版系统的使用
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Other/matlab2014a%E5%AE%89%E8%A3%85/" title="Matlab2014a（带破解文档）的安装" class="md-nav__link">
+      Matlab2014a（带破解文档）的安装
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Other/%E5%8A%9E%E5%85%AC/" title="办公软件EXCEL、Word、PPT、PDF" class="md-nav__link">
+      办公软件EXCEL、Word、PPT、PDF
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Wiki
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Wiki
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
+    
+    <label class="md-nav__link" for="nav-3-1">
+      Grove 连线系统
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-1">
+        Grove 连线系统
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../wiki/Grove%20%E8%BF%9E%E7%BA%BF%E7%B3%BB%E7%BB%9F/Grove%20Femto/" title="Grove Extension Femto小型板拓展板" class="md-nav__link">
+      Grove Extension Femto小型板拓展板
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      NUEDC系列
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        NUEDC系列
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../wiki/NUEDC%E7%B3%BB%E5%88%97/Trtboard-%E5%8A%A8%E6%80%81%E8%B4%9F%E8%BD%BD%E6%9D%BF/" title="Trtboard 动态电子负载" class="md-nav__link">
+      Trtboard 动态电子负载
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">目录</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    版本控制有什么用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    为什么需要版本控制工具
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="1git-git">1.Git 版本控制软件Git介绍<a class="headerlink" href="#1git-git" title="Permanent link">&para;</a></h1>
+<h2 id="_1">版本控制有什么用<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>提高代码重用性</strong></li>
+</ul>
+<p>比如其中的01-bsp_uart_tx文件夹，实现了串口发送的独立功能，当下次项目中需要时，可以直接拷贝过去而无需重写；</p>
+<ul>
+<li><strong>方便版本回退（重点）</strong></li>
+</ul>
+<p>当编写第三个功能03-adc0832+uart+oled的时候，因为思路不清晰导致代码出错，这个时候如果将新添加的代码都找到删除，工作量非常大，而且效率极低，有了版本控制，我们可以直接在02-adc0832+uart的基础上重新编写；</p>
+<p>在公板上验证程序无误后，便可以转入硬件开发：设计原理图，绘制PCB，生产焊接调试等工作（电路图也能够版本控制，在后面的文章中介绍）</p>
+<h2 id="_2">为什么需要版本控制工具<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>在上一节中我们通过多个文件夹的方式手动实现了版本控制，但是该方式也有一个非常大的缺点：</p>
+<ul>
+<li>迭代建立文件夹，重复内容多；</li>
+<li>版本迭代时修改的内容无法查看；</li>
+</ul>
+<p>为了解决这一问题，诞生的主流的版本控制软件：</p>
+<ul>
+<li>集中式版本控制工具：SVN</li>
+<li>分布式版本控制工具：Git</li>
+</ul>
+<p>使用版本控制软件可以解决这一大问题并且带来许多其他的优点，诸如：</p>
+<ul>
+<li>保存了数据当前状态以及之前每一个提交的历史状态，可以回退到任意一个版本节点；</li>
+<li>在保存每一个版本的文件信息时不重复保存数据，节约存储空间，提高运行效率；</li>
+<li>可以清楚到看到不同版本间修改的内容；</li>
+<li>可以多人协作，团队开发；</li>
+</ul>
+<p><img alt="git&amp;github" src="../images/git_github.png" /></p>
+<p>本文为摘录：来自</p>
+<p>————————————————</p>
+<p>版权声明：本文为CSDN博主「Mculover666」的原创文章，遵循 CC 4.0 BY-SA 版权协议，转载请附上原文出处链接及本声明。
+<a href="https://blog.csdn.net/Mculover666/article/details/90026361">原文链接</a></p>
+<h1 id="2git1">2.Git的使用1——本地仓库的操作<a class="headerlink" href="#2git1" title="Permanent link">&para;</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这里以windows下的git bash使用为例，其他平台指令完全一样</p>
+</div>
+<h2 id="git-bash">Git bash的使用步骤<a class="headerlink" href="#git-bash" title="Permanent link">&para;</a></h2>
+<ol>
+<li>cd到目录并初始化</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git init
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>将所有文件添加到管理之中</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git add -A
+</pre></div>
+</td></tr></table>
+
+<p>这里的-A也可用--all替换，表示全部文件之意</p>
+<ol>
+<li>首次提交或是修改完后提交先查看修改再提交</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>$ git diff
+diff --git a/docs/tutorial/Git/use of git.md b/docs/tutorial/Git/use of git.md
+index e69de29..de29587 <span class="m">100644</span>
+--- a/docs/tutorial/Git/use of git.md
++++ b/docs/tutorial/Git/use of git.md
+@@ -0,0 +1,4 @@
++# Git的使用
++
++!!! note
++    这里以windows下的git bash使用为例，其他平台指令完全一样
+<span class="se">\ </span>No newline at end of file
+</pre></div>
+</td></tr></table>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这里的git diff命令，在修改较多的情况下推荐使用以下命令(避免查看太多信息)：</p>
+</div>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git status
+</pre></div>
+</td></tr></table>
+
+<p>再使用git commit</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git commit -am &quot;这是一次关于xxx的修改&quot;
+</pre></div>
+</td></tr></table>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>这里的-a参数表示所有文件，-m参数表示<strong>提交信息（massage）</strong></p>
+</div>
+<ul>
+<li>
+<p><strong>-m</strong>是推荐必须的参数，因为这关乎版本管理中的<strong>回退版本</strong>操作，这一信息会与之前版本一并显示</p>
+</li>
+<li>
+<p>每次修改之后，都要使用以下命令将修改放入暂存区，再进行commit</p>
+</li>
+</ul>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git add *
+</pre></div>
+</td></tr></table>
+
+<h2 id="_3">版本回退步骤<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>1.git reset命令（重置）</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git reset a0fvf8 <span class="c1">#版本重置，HEAD指向这一版本</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="1596340719576.png" src="../images/1596340719576.png" /></p>
+<p>2.git revert命令（回退）</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git revert 5lk4er git revert 76sdeb <span class="c1">#版本回退，HEAD指向这个版本上一个</span>
+</pre></div>
+</td></tr></table>
+
+<p><img alt="1596340824420.png" src="../images/1596340824420.png" /></p>
+<p><br /><br /><br /></p>
+<h2 id="reference">REFERENCE 参考文献<a class="headerlink" href="#reference" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/896202780297248">廖雪峰的官方网站之git教程</a></p>
+<h2 id="appendix">APPENDIX 附录<a class="headerlink" href="#appendix" title="Permanent link">&para;</a></h2>
+<p>All the <a href="">coding</a> in this document is Available on the Github.</p>
+<h2 id="ttech-support">TTECH SUPPORT 技术支持<a class="headerlink" href="#ttech-support" title="Permanent link">&para;</a></h2>
+<h1 id="3git2github">3.Git的使用2——远程仓库Github<a class="headerlink" href="#3git2github" title="Permanent link">&para;</a></h1>
+<p>GitHub——全球最大同性交友网站（狗头），我们这里主要使用它的代码托管功能。需要说明的是，GitHub并不是唯一的选择，你甚至可以自己搭建一个远程git仓库，如在docker中部署gitlab就是一个较为简单的选择。</p>
+<p><strong>没有远程仓库的git是没有灵魂的</strong>。如果只是在一个仓库里管理文件历史，Git和SVN真没啥区别。为了保证你现在所学的Git物超所值，将来绝对不会后悔（为了打击已经不幸学了SVN的童鞋）,现在介绍git的另一大功能——<strong>远程仓库</strong>。</p>
+<h2 id="_4">简单体验<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>首先体验一下最简单的从github拉取到本地——从远程库克隆：打开git bash后键入以下命令：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git clone https://github.com/Ray005/eleasysite.git
+</pre></div>
+</td></tr></table>
+
+<p>这是使用http的方式拉取，不需要密钥，下面使用的推送则基于SSH协议，稍微复杂一些：</p>
+<h2 id="_5">步骤<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>在继续阅读后续内容前，请自行注册GitHub账号</p>
+<h3 id="ssh-key">第一步：创建SSH Key<a class="headerlink" href="#ssh-key" title="Permanent link">&para;</a></h3>
+<p>在文件夹中右键，选择<code>“Git Bash Here”</code>按钮，输入以下命令以SSH密钥，注意要替换成你的邮件地址（虽然不换也问题不大）：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>ssh-keygen -t rsa -C <span class="s2">&quot;youremail@example.com&quot;</span>
+</pre></div>
+</td></tr></table>
+
+<p>然后一路回车，也就是使用默认参数的意思。在<code>C:\Users\用户名\.ssh</code>文件夹里找到两个文件：<code>id_rsa</code>和<code>id_rsa.pub</code>两个文件，这两个就是SSH Key的秘钥对</p>
+<ul>
+<li>id_rsa是私钥，不能泄露出去</li>
+<li>id_rsa.pub是公钥，可以放心地告诉任何人。</li>
+</ul>
+<h3 id="github">第二步：在GitHub上添加公钥<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>登陆GitHub，右上角箭头中依次打开<code>“Account settings”</code>，<code>“SSH Keys”</code>页面：</p>
+<p>然后，点<code>“Add SSH Key”</code>，填上任意Title，在Key文本框里粘贴<code>id_rsa.pub</code>文件内容,这需要在上一步所说的路径中，找到公钥文件，使用文本编辑器打开（如VScode，甚至windows自带的记事本也可以）：</p>
+<div class="admonition question">
+<p class="admonition-title">Question</p>
+<p>为什么GitHub需要SSH Key呢？因为GitHub需要识别出你推送的提交确实是你推送的，而不是别人冒充的，而Git支持SSH协议，所以，GitHub只要知道了你的公钥，就可以确认只有你自己才能推送。当然，GitHub允许你添加多个Key。假定你有若干电脑，你一会儿在公司提交，一会儿在家里提交，只要把每台电脑的Key都添加到GitHub，就可以在每台电脑上往GitHub推送了。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>友情提示，在GitHub上免费托管的Git仓库，任何人都可以看到喔（但只有你自己才能改）。所以，不要把敏感信息放进去。</p>
+</div>
+<h3 id="github_1">第三步：创建Github远程库并从本地推送<a class="headerlink" href="#github_1" title="Permanent link">&para;</a></h3>
+<p>现在的情景是，你已经在本地创建了一个Git仓库后，又想在GitHub创建一个Git仓库，并且让这两个仓库进行远程同步，</p>
+<p>首先需要知道几个词：
+* Repository:储存库
+* origin：远程库的默认名称，让人一看就知道是远程库
+* master：主分支，与之对应的是branch，分支</p>
+<p>在github上创建好储存库（Repository）后，需要关联一下本地库与远程库，在本地的bash中输入：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="n">git</span><span class="w"> </span><span class="n">remote</span><span class="w"> </span><span class="k">add</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">git</span><span class="nv">@github</span><span class="p">.</span><span class="nl">com</span><span class="p">:</span><span class="n">ray005</span><span class="o">/</span><span class="n">example</span><span class="p">.</span><span class="n">git</span><span class="w"></span>
+</pre></div>
+</td></tr></table>
+
+<p>这里要替换两处：
+* ray005是我的github ID，换成你注册是的用户名即可
+* example.git这是储存库的名字，换成你刚才创建的即可</p>
+<p>接下来可以推送了,<code>-u</code>参数在之后不用了，因为它是关联本地与远程库的参数：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git push -u origin master
+</pre></div>
+</td></tr></table>
+
+<p>至此，恭喜你，你已经拥有一个远程仓库并可以与GitHub上成千上万的程序猿/媛以代码方式交流了！</p>
+<p>首次推送会收到警告，回答yes即可，这样等于信任了这个“github”是你真正要推送的目标，如果害怕有人伪装成github，可以验证一下那一串字符。</p>
+<h2 id="_6">小结<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p><code>ssh-keygen -t rsa -C "youremail@example.com"</code> 生成本机密钥（公钥要上传到github）</p>
+<p><code>git remote add origin git@github.com:ray005/example.git</code> 要关联一个远程库，使用该命令</p>
+<p><code>git push -u origin master</code> 推送命令：-u参数是第一次推送时才用。表示推送到origin远程库的master分支，之后就默认使用这个分支了</p>
+<p><br /><br /><br /></p>
+<h2 id="reference_1">REFERENCE 参考文献<a class="headerlink" href="#reference_1" title="Permanent link">&para;</a></h2>
+<p><a href="https://www.liaoxuefeng.com/wiki/896043488029600/896202780297248">廖雪峰的官方网站之git教程</a></p>
+<h2 id="appendix_1">APPENDIX 附录<a class="headerlink" href="#appendix_1" title="Permanent link">&para;</a></h2>
+<p>All the <a href="">coding</a> in this document is Available on the Github.</p>
+<h2 id="ttech-support_1">TTECH SUPPORT 技术支持<a class="headerlink" href="#ttech-support_1" title="Permanent link">&para;</a></h2>
+<h1 id="4v2rayssrgit">4.使用V2Ray或SSR代理git<a class="headerlink" href="#4v2rayssrgit" title="Permanent link">&para;</a></h1>
+<p>使用V2Ray或SSR均可为git代理，关键是在gitbash中设置代理地址，注意找到代理的本地端口号
+* V2Ray 默认<code>10808</code>
+* SS/SSR 默认<code>1080</code>
+* 佛跳墙 在设置中查看,如<code>19181</code></p>
+<h1 id="_7">问答：<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<ol>
+<li>
+<p>你正在使用哪个版本的 V2Ray？（如果服务器和客户端使用了不同版本，请注明）</p>
+<ul>
+<li>3.29</li>
+</ul>
+</li>
+<li>
+<p>你的使用场景是什么？</p>
+<ul>
+<li>比如使用 Chrome 通过 Socks/* VMess 代理观看 YouTube 视频。</li>
+</ul>
+</li>
+<li>
+<p>系统代理代理git client;</p>
+<ul>
+<li>为git设置代理命令</li>
+</ul>
+</li>
+</ol>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global https.proxy http://127.0.0.1:1080
+git config --global https.proxy https://127.0.0.1:1080
+git config --global http.proxy <span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
+git config --global https.proxy <span class="s1">&#39;socks5://127.0.0.1:1080&#39;</span>
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>git clone项目</li>
+</ol>
+<p>你看到的不正常的现象是什么？（请描述具体现象，比如访问超时，TLS 证书错误等）
+无法代理 返回错误日志 使用ss ssr可以正常代理</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="m">2018</span>/07/10 <span class="m">20</span>:52:29 tcp:127.0.0.1:60854 rejected Proxy<span class="p">|</span>Socks: unknown Socks version: <span class="m">67</span>
+<span class="m">2018</span>/07/10 <span class="m">20</span>:53:09 tcp:127.0.0.1:60858 rejected Proxy<span class="p">|</span>Socks: unknown Socks version: <span class="m">67</span>
+<span class="m">2018</span>/07/10 <span class="m">20</span>:53:10 tcp:127.0.0.1:60859 rejected Proxy<span class="p">|</span>Socks: unknown Socks version: <span class="m">67</span>
+</pre></div>
+</td></tr></table>
+
+<ol>
+<li>你期待看到的正确表现是怎样的？<ul>
+<li>正常代理git下载请求</li>
+</ul>
+</li>
+</ol>
+<h2 id="_8">取消代理<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git config --global --unset http.proxy
+git config --global --unset https.prox
+</pre></div>
+</td></tr></table>
+
+<h2 id="reference_2">REFERENCE<a class="headerlink" href="#reference_2" title="Permanent link">&para;</a></h2>
+<p>Github Loked issue:无法代理git ＃1190 on 10 Jul 2018 ·6条评论<a href="https://github.com/v2ray/v2ray-core/issues/1190">https://github.com/v2ray/v2ray-core/issues/1190</a></p>
+<h1 id="5git">5.git突然无法访问<a class="headerlink" href="#5git" title="Permanent link">&para;</a></h1>
+<p>2020.06 github再次被墙。</p>
+<h2 id="_9">步骤<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>打开<code>C:\Windows\System32\drivers\etc</code>的<code>host</code>文件，添加如下：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>在 <span class="nv">C</span>:\<span class="nv">Windows</span>\<span class="nv">System32</span>\<span class="nv">drivers</span>\<span class="nv">etc</span>的<span class="s1">&#39;</span><span class="s">host</span><span class="s1">&#39;</span>文件中替换原来的<span class="nv">Github</span>解析内容
+
+# <span class="nv">GitHub</span> <span class="nv">Start</span> 
+<span class="mi">140</span>.<span class="mi">82</span>.<span class="mi">114</span>.<span class="mi">4</span> <span class="nv">github</span>.<span class="nv">com</span>
+<span class="mi">140</span>.<span class="mi">82</span>.<span class="mi">114</span>.<span class="mi">4</span> <span class="nv">gist</span>.<span class="nv">github</span>.<span class="nv">com</span>
+<span class="mi">185</span>.<span class="mi">199</span>.<span class="mi">108</span>.<span class="mi">153</span> <span class="nv">assets</span><span class="o">-</span><span class="nv">cdn</span>.<span class="nv">github</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">64</span>.<span class="mi">133</span> <span class="nv">raw</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">gist</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">cloud</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">camo</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars0</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars1</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars2</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars3</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars4</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars5</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars6</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars7</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span>
+<span class="mi">151</span>.<span class="mi">101</span>.<span class="mi">108</span>.<span class="mi">133</span> <span class="nv">avatars8</span>.<span class="nv">githubusercontent</span>.<span class="nv">com</span> 
+# <span class="nv">GitHub</span> <span class="k">End</span>
+</pre></div>
+</td></tr></table>
+
+<h2 id="_10">其他<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>查询githubusercontent.com的IP地址填入也是可行的<a href="https://githubusercontent.com.ipaddress.com/raw.githubusercontent.com">点击查询</a></p>
+<p>（这样会导致github.com没法儿ping通，但是git推送下载能够正常使用）</p>
+<p><img alt="1596345789135.png" src="../images/1596345789135.png" /></p>
+<h2 id="reference_3">REFERENCE<a class="headerlink" href="#reference_3" title="Permanent link">&para;</a></h2>
+<p><a href="https://blog.csdn.net/qq_44972915/article/details/106646816">CSDN文章</a></p>
+<h1 id="6git">6.Git强制拉取到本地<a class="headerlink" href="#6git" title="Permanent link">&para;</a></h1>
+<h2 id="_11">步骤<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>依次执行以下命令</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git fetch --all
+git reset --hard origin/master
+git pull
+</pre></div>
+</td></tr></table>
+
+<h2 id="_12">解释<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>git pull 强制覆盖本地的代码方式，下面是正确的方法：</p>
+<p>git fetch --all
+然后，你有两个选择：</p>
+<p>git reset --hard origin/master
+或者如果你在其他分支上：</p>
+<p>git reset --hard origin/<branch_name>
+说明：</p>
+<p>git fetch从远程下载最新的，而不尝试合并或rebase任何东西。</p>
+<p>然后git reset将主分支重置为您刚刚获取的内容。 --hard选项更改工作树中的所有文件以匹配origin/master中的文件。</p>
+<h2 id="_13"><strong>在自建工作流中的示例</strong><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span>
+<span class="normal">8</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="nb">cd</span> eleasysite
+sudo git fetch --all
+git reset --hard origin/master
+git pull
+<span class="nb">cd</span> ..
+sudo rm -r /var/www/html
+sudo chmod -R <span class="m">777</span> eleasysite
+sudo cp -r eleasysite /var/www/html
+</pre></div>
+</td></tr></table>
+
+<p><br /><br /><br /></p>
+<h2 id="reference_4">REFERENCE 参考文献<a class="headerlink" href="#reference_4" title="Permanent link">&para;</a></h2>
+<p><a href="https://blog.csdn.net/taoerchun/article/details/94478080">CSDN——git pull 强制覆盖本地的代码</a></p>
+<h1 id="7githubreadme">7.github储存库Readme中地图片插入<a class="headerlink" href="#7githubreadme" title="Permanent link">&para;</a></h1>
+<h2 id="_14">步骤<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h3 id="1images">1插入图片（最好放置到images文件夹下）<a class="headerlink" href="#1images" title="Permanent link">&para;</a></h3>
+<p><img alt="1608353737270.png" src="../images/1608353737270.png" /></p>
+<h3 id="2gitpush">2git上直接push上去<a class="headerlink" href="#2gitpush" title="Permanent link">&para;</a></h3>
+<h3 id="3github">3在github项目中找到这张图片，右键复制图片地址<a class="headerlink" href="#3github" title="Permanent link">&para;</a></h3>
+<p><img alt="1608353819935.png" src="../images/1608353819935.png" /></p>
+<h3 id="4readmemd">4在本地readme.md中图片地址改为这个<a class="headerlink" href="#4readmemd" title="Permanent link">&para;</a></h3>
+<h3 id="5git-push">5再次git push上去<a class="headerlink" href="#5git-push" title="Permanent link">&para;</a></h3>
+<h1 id="8_pushpush">8远程库改变了_无法push问题：合并后再push<a class="headerlink" href="#8_pushpush" title="Permanent link">&para;</a></h1>
+<h2 id="_15">解决方案：使用：<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span></pre></div></td><td class="code"><div class="codehilite"><pre><span></span>git pull --rebase origin master
+git push
+</pre></div>
+</td></tr></table>
+
+<p>注：这样pull不会清除原来的更改，只会合并后再push（已经验证了）</p>
+<h2 id="reference_5">REFERENCE<a class="headerlink" href="#reference_5" title="Permanent link">&para;</a></h2>
+<p>https://blog.csdn.net/rocling/article/details/82956402</p>
+                
+                  
+                
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../.." title="电易中文网 Eleasy.cn" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  上一页
+                </span>
+                电易中文网 Eleasy.cn
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../Python/" title="Python Tips" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  下一页
+                </span>
+                Python Tips
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            赣ICP备19006295号-2
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
+    
+      <a href="" target="_blank" rel="noopener" title="wechat" class="md-footer-social__link fa fa-wechat"></a>
+    
+      <a href="http://wpa.qq.com/msgrd?v=3&uin=723956891&site=qq&menu=yes" target="_blank" rel="noopener" title="qq" class="md-footer-social__link fa fa-qq"></a>
+    
+      <a href="https://Ray005.github.io" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.970603a6.js"></script>
+      
+      <script>app.initialize({version:"1.2.3",url:{base:"../.."}})</script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+        <script src="../../javascripts/MathJax.js"></script>
+      
+    
+  </body>
+</html>
